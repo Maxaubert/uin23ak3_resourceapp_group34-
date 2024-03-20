@@ -2,23 +2,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900;600&display=swap');
 
-$deepBlue: #2A324B;
-$lightBlue: #58699D;
-$lightGrey: #E1E5EE;
+$deepBlue: #2a324b;
+$lightBlue: #58699d;
+$lightGrey: #e1e5ee;
 $white: #fff;
 
 body {
-  background-color: $lightGrey;
-  padding: 0;
-  margin: 9vw auto;
   display: flex;
-  flex-wrap: wrap;
-  max-width: 80%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15rem;
+  background-color: $lightGrey;
+  box-sizing: border-box; // Ensure padding and border are included in width
+
+  #menu, #article-box {
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box; // Ensure padding and border are included in width
+  }
 
   #menu {
     display: flex;
     justify-content: space-between;
-    width: 100%;
     gap: 1%;
 
     button {
@@ -41,8 +47,8 @@ body {
 
   #article-box {
     padding: 5rem;
-    width: 100%;
     background-color: $white;
+    box-sizing: border-box; // Ensure padding is included
   }
 
   #content, #links {
@@ -66,18 +72,11 @@ body {
   }
 }
 
-// Responsive adjustments
-@media (max-width: 900px) {
-  body {
-    max-width: 100%;
-  }
-}
+
 
 @media (max-width: 640px) {
   body {
-    display: flex;
-    flex: 1 1 auto;
-    max-width: 100%;
+    margin-top: 2rem; // Further reduce top margin for very small screens
   }
 
   #menu {
@@ -86,8 +85,7 @@ body {
     margin: 0;
 
     button {
-      padding-left: 0;
-      padding-right: 0;
+      padding: 1em; // Adjust button padding for smaller screens
       width: 100%;
       margin: 0;
       border-bottom: solid 1px $white;
@@ -95,11 +93,10 @@ body {
   }
 
   #article-box {
-    width: 100%;
-    padding: 1.5em;
+    padding: 1rem; // Adjust article box padding for consistency on small screens
   }
 
   #content {
-    padding: 0;
+    padding: 0; // Adjust content padding if needed
   }
 }
