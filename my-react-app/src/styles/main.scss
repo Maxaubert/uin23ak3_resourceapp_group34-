@@ -16,7 +16,8 @@ body {
   background-color: $lightGrey;
   box-sizing: border-box; // Ensure padding and border are included in width
 
-  #menu, #article-box {
+  #menu,
+  #article-box {
     width: 100%;
     max-width: 1200px;
     box-sizing: border-box; // Ensure padding and border are included in width
@@ -51,7 +52,8 @@ body {
     box-sizing: border-box; // Ensure padding is included
   }
 
-  #content, #links {
+  #content,
+  #links {
     margin: 0;
 
     h2 {
@@ -72,31 +74,30 @@ body {
   }
 }
 
-
-
 @media (max-width: 640px) {
-  body {
-    margin-top: 2rem; // Further reduce top margin for very small screens
-  }
-
-  #menu {
-    flex-direction: column;
-    width: 100%;
-    margin: 0;
-
-    button {
-      padding: 1em; // Adjust button padding for smaller screens
+    body {
+      margin-top: 2rem; // Further reduce top margin for very small screens
+    }
+  
+    #menu {
+      flex-direction: column;
       width: 100%;
       margin: 0;
-      border-bottom: solid 1px $white;
+  
+      button {
+        padding: 1em; // Adjust button padding for smaller screens
+        width: 100%;
+        margin: 0;
+        border-bottom: solid 1px $white;
+      }
+    }
+  
+    body #article-box {
+      padding: 1.5rem; 
+    }
+  
+    #content {
+      padding: 0; 
     }
   }
 
-  #article-box {
-    padding: 1rem; // Adjust article box padding for consistency on small screens
-  }
-
-  #content {
-    padding: 0; // Adjust content padding if needed
-  }
-}
