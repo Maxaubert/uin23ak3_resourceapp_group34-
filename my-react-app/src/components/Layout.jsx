@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export default function Layout() {
   //Array fra forrige obligs skript
@@ -99,10 +100,13 @@ export default function Layout() {
     },
   ]
   const [content, setContent] = useState(resources[0])
+  const navigate = useNavigate()
+  const {category} = useParams()
 
   //funksjon foronclick
   const handleClick = (element) => {
     setContent(element)
+    navigate(`/${element.category}`)
   }
 
   return (
@@ -125,7 +129,7 @@ export default function Layout() {
             <ul>
             {content.sources.map((link, index) => (
               <li>
-                <a href={link.url}>{link.title}</a>
+                <a href={link.url}>  const { category } = useParams();{link.title}</a>
               </li>
             ))}
             </ul>
