@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { useState } from 'react'
 
 export default function Layout() {
+  //Array fra forrige obligs skript
   const resources = [
     {
       category: 'HTML',
@@ -97,41 +98,40 @@ export default function Layout() {
       ],
     },
   ]
+  const [content, setContent] = useState(resources[0])
 
-  const [activeContent, setActiveContent] = useState(resources[0])
-
-  const displayContent = (element) => {
-    setActiveContent(element)
+  //funksjon foronclick
+  const handleClick = (element) => {
+    setContent(element)
   }
 
   return (
     <>
-      <nav id="menu">
-        {resources.map((element, index) => (
-          <button
-            key={index}
-            className={activeContent.category === element.category ? 'active' : ''}
-            onClick={() => displayContent(element)}
-          >
-            {element.category}
-          </button>
-        ))}
-      </nav>
-      <main id="article-box">
-        <article id="content">
-          <h2>{activeContent.category}</h2>
-          <p>{activeContent.text}</p>
-        </article>
-        <div id="links">
-          <ul>
-            {activeContent.sources.map((source, index) => (
-              <li key={index}>
-                <a href={source.url}>{source.title}</a>
+    <body>
+      
+        <nav id="menu">
+          {resources.map((element, index) => (
+            <button onClick={() => handleClick(element)} key={index} className={content.category === element.category ? 'active' : ''}>
+              {element.category}
+            </button>
+          ))}
+        </nav>
+        <main id="article-box">
+          <article id="content">
+            <h2>{content.category}</h2>
+            <p>{content.text}</p>
+          </article>
+          <div id="links">
+            <ul>
+            {content.sources.map((link, index) => (
+              <li>
+                <a href={link.url}>{link.title}</a>
               </li>
             ))}
-          </ul>
-        </div>
-      </main>
+            </ul>
+          </div>
+        </main>
+            </body>
     </>
   )
 }

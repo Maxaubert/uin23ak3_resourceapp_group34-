@@ -12,7 +12,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 15rem;
+  margin-top: 7rem;
   background-color: $lightGrey;
   box-sizing: border-box; // Ensure padding and border are included in width
 
@@ -49,9 +49,10 @@ body {
   #article-box {
     padding: 5rem;
     background-color: $white;
-    box-sizing: border-box; // Ensure padding is included
+    box-sizing: border-box; 
+    min-height: 300px; 
+    min-width: clamp(300px, 80vw, 1200px);
   }
-
   #content,
   #links {
     margin: 0;
@@ -59,13 +60,13 @@ body {
     h2 {
       font-family: 'Montserrat', sans-serif;
       font-weight: 900;
-      font-size: 25px;
-      color: $deepBlue;
+      font-size: calc(16px + (25 - 16) * ((100vw - 400px) / (1600 - 400))); // Responsive font size example      color: $deepBlue;
       padding-bottom: 1rem;
     }
 
     p {
       font-family: 'Montserrat', sans-serif;
+      font-size: calc(14px + (18 - 14) * ((100vw - 400px) / (1600 - 400))); // Responsive font size example
     }
   }
 
